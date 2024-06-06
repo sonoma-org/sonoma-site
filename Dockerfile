@@ -1,9 +1,18 @@
-FROM python:3.12.2-bookworm
+FROM python:3.12
 
-WORKDIR /app
+#
+WORKDIR /code
+#
+COPY ./requirements.txt /code/requirements.txt
 
-COPY . /app
+#
+RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
 
-RUN pip install -r /app/requirements.txt
+#
+COPY ./app /code/app
+COPY ./www /code/www
 
-CMD ["python", "main.py"]
+EXPOSE 80/tcp
+WORKDIR /code
+#
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "80"]
