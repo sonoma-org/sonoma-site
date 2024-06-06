@@ -17,9 +17,9 @@ class Server:
         self.port = port
         self.addr = addr
         app.mount(
-    "/www",
+    "/static",
     StaticFiles(directory=Path(__file__).parent.parent.absolute() / "www"),
-    name="www",
+    name="static",
 )
 
     @app.get("/")
