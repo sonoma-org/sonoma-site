@@ -15,4 +15,4 @@ COPY ./www /code/www
 EXPOSE 80/tcp
 WORKDIR /code
 
-RUN python app/main.py
+CMD ["python", "app/main.py"]
