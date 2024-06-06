@@ -14,5 +14,5 @@ COPY ./www /code/www
 
 EXPOSE 80/tcp
 WORKDIR /code
-#
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "80"]
+
+RUN python app/main.py
