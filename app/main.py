@@ -6,8 +6,8 @@ from pathlib import Path
 from fastapi.responses import FileResponse
 from fastapi.templating import Jinja2Templates
 
-port = 8023
-addr = "127.0.0.1"
+port = 80
+addr = "0.0.0.0"
 app = FastAPI()
 templates = Jinja2Templates(directory="www")
 
