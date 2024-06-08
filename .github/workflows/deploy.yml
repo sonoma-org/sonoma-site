@@ -20,5 +20,8 @@ jobs:
     - name: Login Sonoma Docker registry
       run: docker login docker.sonoma.su --username ${{ secrets.DOCKER_LOGIN }} --password ${{ secrets.DOCKER_PASSWORD }}
 
-    - name: Push image
-      run: docker push docker.sonoma.su/sonoma-site
+    - name: Add tag
+      run: docker tag sonoma-site:latest docker.sonoma.su/sonoma-site
+
+    - name: Pull image
+      run: docker pull docker pull docker.sonoma.su/sonoma-site
