@@ -1,10 +1,12 @@
 from fastapi.staticfiles import StaticFiles
 import uvicorn
-from fastapi import FastAPI, Request
+from fastapi import FastAPI, HTTPException, Request
 import os
 from pathlib import Path
-from fastapi.responses import FileResponse
+from fastapi.responses import FileResponse, JSONResponse
 from fastapi.templating import Jinja2Templates
+from repos import get_reps, get_json_names, get_rep
+from refresh import thread
 
 port = 80
 addr = "0.0.0.0"
@@ -16,11 +18,11 @@ class Server:
     def __init__(self):
         self.port = port
         self.addr = addr
+        thread.start()
         app.mount(
     "/static",
     StaticFiles(directory=Path(__file__).parent.parent.absolute() / "www"),
-    name="static",
-)
+    name="static",)
 
     @app.get("/")
     def index(self: Request):
@@ -43,6 +45,23 @@ class Server:
     @app.get("/images/sonoma.png")
     def contact(self: Request):
         return FileResponse(Path('www/images/sonoma.png'))
+    
+    @app.get("/api/projects")
+    def all(self: Request):
+        repos = get_json_names()
+
+        return JSONResponse(content=repos)
+    
+    @app.get("/projects/{name}")
+    def rep(self: Request, name):
+        rep = get_rep(name)
+
+        if rep is not None:
+            return templates.TemplateResponse(
+                "html/repos.html", {"request": self, "rep": rep}
+            )
+        else:
+            raise HTTPException(status_code=404)
     
 
     def start_server(self):

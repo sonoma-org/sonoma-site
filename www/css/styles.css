@@ -66,3 +66,30 @@ footer {
 	padding: 10px 0;
 	height: 90px;
 }
+
+.repos {
+	padding: 20px;
+	background: #181818;
+	margin: 15px;
+}
+
+.btn-new {
+	align-content: center;
+	margin-top: 20px;
+	margin-left: 45.2%;
+    border: none;
+	height: 30px;
+	width: 80px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: white;
+    background: #a40bf6;
+    box-shadow: 0 3px 0 #6600c5;
+}
+
+.btn-new:hover {
+    background: #8300c5;
+    box-shadow: none;
+    position: relative;
+    top: 3px;
+}
