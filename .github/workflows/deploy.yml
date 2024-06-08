@@ -15,13 +15,10 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Build the Docker image
-      run: docker build -t sonoma-site .
+      run: docker build -t docker.sonoma.su/sonoma-site .
     
     - name: Login Sonoma Docker registry
       run: docker login docker.sonoma.su --username ${{ secrets.DOCKER_LOGIN }} --password ${{ secrets.DOCKER_PASSWORD }}
-
-    - name: Add tag
-      run: docker tag sonoma-site:latest docker.sonoma.su/sonoma-site
 
     - name: Push image
       run: docker push docker.sonoma.su/sonoma-site
