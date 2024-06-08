@@ -6,8 +6,8 @@ from pathlib import Path
 from fastapi.responses import FileResponse
 from fastapi.templating import Jinja2Templates
 
-port = 80
-addr = "0.0.0.0"
+port = 8063
+addr = "127.0.0.1"
 app = FastAPI()
 templates = Jinja2Templates(directory="www")
 
@@ -31,13 +31,13 @@ class Server:
     @app.get("/projects")
     def projects(self: Request):
         return templates.TemplateResponse(
-            "projects.html", {"request": self}
+            "pages/projects.html", {"request": self}
         )
     
     @app.get("/contact")
     def contact(self: Request):
         return templates.TemplateResponse(
-            "contact.html", {"request": self}
+            "pages/contact.html", {"request": self}
         )
     
     @app.get("/images/sonoma.png")
