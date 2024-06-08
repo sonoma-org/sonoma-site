@@ -21,4 +21,4 @@ jobs:
       run: docker login docker.sonoma.su --username ${{ secrets.DOCKER_LOGIN }} --password ${{ secrets.DOCKER_PASSWORD }}
 
     - name: Push image
-      run: docker push docker.sonoma.su/sonoma-site
+      run: docker push docker.sonoma.su:5000/sonoma-site
