@@ -60,13 +60,6 @@ footer {
     height: 10px;
 }
 
-#footer {
-	max-width: 960px;
-	margin: auto;
-	padding: 10px 0;
-	height: 90px;
-}
-
 .repos {
 	padding: 20px;
 	background: #181818;
