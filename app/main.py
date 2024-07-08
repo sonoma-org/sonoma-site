@@ -46,6 +46,10 @@ class Server:
     def contact(self: Request):
         return FileResponse(Path('www/images/sonoma.png'))
     
+    @app.get("/favicon.ico")
+    def contact(self: Request):
+        return FileResponse(Path('www/icons/favicon.ico'))
+    
     @app.get("/api/projects")
     def all(self: Request):
         repos = get_json_names()

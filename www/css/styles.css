@@ -1,7 +1,7 @@
 body {
-    color: #8f8f8f;
+    color: #c3c3c3;
 	font: 12px Tahoma, sans-serif;
-	background-color: #292828;
+	background-color: rgb(23, 30, 52);
 	border-top: 5px solid #7e7e7e;
 	margin: 0;
 }
@@ -41,7 +41,7 @@ nav li {
 }
 
 .top-menu li.active {
-	background: #b029e6;
+	background: rgb(85, 166, 208);
 	color: #fff;
 }
 
@@ -76,12 +76,12 @@ footer {
     border-radius: 10px;
     text-decoration: none;
     color: white;
-    background: #a40bf6;
-    box-shadow: 0 3px 0 #6600c5;
+    background: rgb(90, 152, 200);
+    box-shadow: 0 3px 0 rgb(54, 92, 122);
 }
 
 .btn-new:hover {
-    background: #8300c5;
+    background: rgb(54, 92, 122);
     box-shadow: none;
     position: relative;
     top: 3px;
