@@ -27,7 +27,6 @@ def repinfo(z):
 
 def get_reps():
     js = requests.get('https://api.github.com/orgs/sonoma-org/repos', headers={"Authorization":f"Bearer {TOKEN}"}).json()
-    print(js)
     l = list(map(repinfo, js))
 
     global repos 
